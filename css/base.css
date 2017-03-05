@@ -1,0 +1,566 @@
+@charset "UTF-8";
+/*css 初始化 */
+html, body, ul, li, ol, dl, dd, dt, p, h1, h2, h3, h4, h5, h6, form, fieldset, legend, img { margin:0; padding:0; }
+fieldset, img,input,button { border:none; padding:0;margin:0;outline-style:none; }
+ul, ol { list-style:none; }
+input { padding-top:0; padding-bottom:0; font-family: "SimSun","宋体";}
+select, input { vertical-align:middle;}
+select, input, textarea { font-size:12px; margin:0; }
+textarea { resize:none; } /*防止拖动*/
+img {border:0;	vertical-align:middle; }  /*  去掉图片低测默认的3像素空白缝隙*/
+table { border-collapse:collapse; }
+body {
+    font:12px/150% Arial,Verdana,"\5b8b\4f53";
+    color:#666;
+    background:#fff
+}
+.clearfix:before,.clearfix:after {
+    content:"";
+    display:table;
+}
+.clearfix:after{clear:both;}
+.clearfix{
+    *zoom:1;/*IE/7/6*/
+}
+a {color:#666; text-decoration:none; }
+a:hover{color:#C81623;}
+h1,h2,h3,h4,h5,h6 {text-decoration:none;font-weight:normal;font-size:100%;}
+s,i,em{font-style:normal;text-decoration:none;}
+.col-red{color: #C81623!important;}
+
+/*公共类*/
+.w {  /*版心 提取 */
+    width: 1210px;margin:0 auto;
+}
+.fl {
+    float:left
+}
+.fr {
+    float:right
+}
+.al {
+    text-align:left
+}
+.ac {
+    text-align:center
+}
+.ar {
+    text-align:right
+}
+.hide {
+    display:none
+}
+
+/*
+!*头部导航开始*!
+.shortcut {
+    height: 30px;
+    line-height: 30px;
+    background-color: #f1f1f1;
+}
+.dt,
+.shortcut .fore
+{
+    padding:0 20px 0 10px;
+    position: relative;
+}
+.dt i,
+.fore i
+{
+    font: 400 15px/15px "宋体";
+    position: absolute;
+    top:13px;
+    right:3px;
+    height: 7px;
+    overflow: hidden;
+    width: 15px;
+}
+.dt s,
+.fore s{
+    position: absolute;
+    top: -8px;
+    left: 0;
+}
+.fr li {
+    float: left;
+    padding: 0 10px;
+}
+.fr .line {
+    width: 1px;
+    height: 12px;
+    background-color: #ddd;
+    margin-top: 9px;
+    padding:0;
+}
+.shortcut .tel-jd{
+    padding:0 20px 0 25px;
+}
+.tel{
+    position: absolute;
+    width: 15px;
+    height: 20px;
+    background: url(../images/sprite.png) no-repeat;
+    left: 5px;
+    top:5px;
+}
+!*顶部end*!
+!*topbanner start*!
+.topbanner {
+    background-color: #8A25C6;
+}
+.close-banner {
+    position: absolute;
+    right:0;
+    top:5px;
+    width: 19px;
+    height: 19px;
+    background: url(../images/close.png) no-repeat;
+}
+.close-banner:hover {
+    background-position:bottom;
+}
+.tp{
+    position: relative;
+}
+
+!*topbanner end*!
+
+.logo {
+    width: 360px;
+    height: 75px;
+    background-color: pink;
+    float:left;
+    padding-top: 25px;
+    background: url(../images/logo.png) no-repeat 0 25px;
+    position: relative;
+}
+.jd-a{
+    display: block;
+    width: 270px;
+    height: 60px;
+    text-indent:-2000em;
+}
+.db11 {
+    position: absolute;
+    width: 180px;
+    height: 80px;
+    background-color: pink;
+    top: 10px;
+    left: 168px;
+}
+
+
+.search {
+    width: 538px;
+    height: 75px;
+    background-color: purple;
+    float: left;
+    padding-top: 25px;
+}
+.car {
+    width: 139px;
+    height: 34px;
+    background-color: blue;
+    float: right;
+    margin: 25px 65px 0 0 ;
+}
+*/
+/*京东的头部导航开始*/
+#mask{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    z-index: 999;
+    display: none;
+}
+#box{
+    width: 400px;
+    height: 250px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -125px 0 0 -200px;
+    z-index: 1000;
+    background-color: #fff;
+    display: none;
+}
+#close_all{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 30px;
+    font-weight: 500;
+    cursor: default;
+}
+
+.shortcut{                    /* 这个是京东首页头部导航栏的通栏的那个条，设置了高，宽100%，因为浏览器不同*/
+    height: 30px;             /*同时用户的电脑屏幕大小不同，所以让它跟随父亲，100%是跟随屏幕的变化而变化*/
+    line-height: 30px;        /*行高设置在父亲里，后代可以继承*/
+    background-color: #f1f1f1; /*版心没写，因为在公共类中已经写过，直接可以使用即上面的.w这个类*/
+    width: 100%;                /*头部版心又分为两个部分，即左右两个部分，它们也在公共类中，直接可以使用*/
+}                                /*头部版心左右部分即上面的fl和fr，直接使用*/
+.shortcut .dt,                             /*dt即左部分里面要输入内容的块，即盒子*/
+.shortcut .fore                 /*.shortcut .fore为右部分中li，也是右部分设置的各个块*/
+{
+    padding: 0 20px 0 10px;     /*设置的内边距*/
+    position: relative;        /*相对定位，为下面的绝对定位做准备，子绝父相*/
+}
+.shortcut .dt i,            /*因为有的块有倒角，这些就是为倒三角做准备的，.dt i为左部分的倒角盒子*/
+.fore i          /*因为有的块有倒角，这些就是为倒三角做准备的，.fore i为右部分的倒角盒子*/
+{
+    font: 400 15px/15px "宋体";
+    /*400是font-weight加粗的意思，原来都是用单词bold来表示，bold的值等于700,400比700细点，以后都用数字表示，这是一个新的zhishi
+    知识点。15px/15px中第一个15px是字体大小的意思,第二个15px是行距大小的意思*/
+    color: #000;               /*颜色设置：黑色*/
+    position: absolute;       /*绝对定位是为摆放盒子的位置，子绝父相，而且绝对定位不占位置*/
+    top: 13px;
+    right: 3px;
+    height: 7px;
+    overflow: hidden;        /*表示“溢出隐藏”。所有溢出边框的内容，都要隐藏掉。*/
+    width: 15px;             /*overflow: hidden还有另外一种用法，即清除浮动，紧记，小窍门*/
+}
+.shortcut .dt s,                      /*s为i里面的一个<s>，放置了一个菱形是为了做倒三角的 .dt s为左部分*/
+.fore s                     /*s为i里面的一个<s>，放置了一个菱形是为了做倒三角的 .fore s为左部分*/
+{
+    position: absolute;     /*绝对定位是为摆放盒子的位置，子绝父相，也可以子绝父绝，而且绝对定位不占位置*/
+    top: -8px;
+}
+.fr li{                       /*右部分的中的li进行浮动*/
+    float: left;
+    padding: 0 10px;         /*右部分的中的li进行浮动，同时li之间也有缝隙，用padding设置*/
+}
+.fr .line{                  /*右部分的中的li中line是为了设置两个相邻块中间一道竖杠的*/
+    width:1px;              /*竖杠的宽*/
+    height:12px;            /*竖杠的高*/
+    background-color: #d6d6d6;
+    margin-top:9px;        /*竖杠的上外边距，以便于竖杠的位置*/
+    padding:0;
+}
+.shortcut .tel-jd{        /*是为了设置一个图标借鉴<li class="fore tel-jd">*/
+    padding: 0 20px 0 25px;/*<em class="tel"></em>中的tel是图标*/
+}
+.tel{                       /*<em class="tel"></em>中的tel是图标的存放处*/
+    position: absolute;    /*绝对定位是为摆放盒子的位置，子绝父相，也可以子绝父绝，而且绝对定位不占位置*/
+    width: 15px;
+    height: 20px;
+    background: url(../images/sprite.png) no-repeat;/*.tel是图标用背景图片加入，即精灵图*/
+    left: 5px;
+    top: 5px;
+}
+/*京东的头部导航结束*/
+/*topbanner start*/
+.topbanner {          /*banner英文意思是旗帜，横幅；标语的意思，topbanner是通栏的*/
+    background-color: #8A25C6;
+}
+.close-banner {      /*close-banner是关闭topbanner它的，即四方带有错号的那个标志*/
+    position: absolute; /*子绝父相，而且close-banner是居于版心内，已用.w包裹过*/
+    right: 0;
+    top: 5px;
+    width: 19px;        /*正方形的宽*/
+    height: 19px;      /*正方形的高*/
+    background: url(../images/close.png) no-repeat;/*用精灵图做*/
+}
+.close-banner:hover {     /*当鼠标箭头点在close-banner上时，它的状态，记住hover的用法*/
+    background-position: bottom;/*设置点上去的时候，会变成什么样，用精灵图，改变一下位置*/
+}
+.tp {
+    position: relative;   /*相对定位  子绝父相*/
+}
+/*topbanner end*/
+/*四个盒子中第一个盒子开始*/
+.logo {      /*这个logo块放置了两个logo ，居于版心内，同时左浮动，然后相对定位*/
+    width: 360px;
+    height: 75px;
+    background-color: pink;
+    float: left;
+    padding-top: 25px;
+    background: url(../images/logo.png) no-repeat 0 25px;
+    position: relative;   /*相对定位  子绝父相*/
+}
+.jd-a {               /*它处在a中  ，设置它的主要目的是为了增加搜索优先性*/
+    display: block;  /*a是行内元素，所以要转块级元素*/
+    width: 270px;
+    height: 60px;
+    text-indent: -2000em;/*目的是为了增加搜索优先性*/
+}
+.db11 {
+    position: absolute;  /*绝对定位  子绝父相*/
+    width: 180px;
+    height: 80px;
+    background-color: pink;
+    top: 10px;
+    left: 168px;
+}
+/*四个盒子中第一个盒子结束*/
+/*四个盒子中第二个盒子开始*/
+.search {
+    width: 538px;
+    height: 35px;
+    float: left;
+    margin-top: 25px;
+}
+.search input {
+    width: 450px;
+    height: 32px;
+    border: 2px solid #B61D1D;
+    padding-left: 4px;
+    color: #666;
+    font: 14px/32px "microsoft yahei";
+    float: left;
+    /*之所以加浮动是因为input和button都是行内块元素，之间会有空隙，然后button会掉下来，所以加*/
+}
+.search button {
+    width: 80px;
+    height: 36px;
+    background-color: #B61D1D;
+    float: left;
+    /*之所以加浮动是因为input和button都是行内块元素，之间会有空隙，然后button会掉下来，所以加*/
+    font: 16px/36px "microsoft yahei";
+    color: #fff;
+    cursor: pointer; /* 鼠标变成小手*/
+}
+/*四个盒子中第二个盒子结束*/
+/*四个盒子中第三个盒子开始*/
+.car {                /* 右边购物车的部分*/
+    width: 96px;
+    padding-left: 43px;
+    float: right;
+    margin: 25px 65px 0 0;
+    border: 1px solid #DFDFDF;
+    line-height: 34px;     /* 因为里面有文字*/
+    position: relative;    /*相对定位  子绝父相*/
+}
+.icon1{
+    position: absolute;   /*绝对定位  子绝父相*/
+    top:10px;        /*绝对定位  子绝父相   定位*/
+    left:20px;     /*绝对定位  子绝父相  定位*/
+    width:16px;
+    height:13px;
+    background: url(../images/sprite.png) no-repeat -1px -59px; /*精灵图*/
+}
+.icon2{
+    position: absolute;   /*绝对定位  子绝父相*/
+    font: 400 13px/13px simsun;
+    top:10px;
+    right:10px;
+}
+.icon3{
+    position: absolute;  /*绝对定位  子绝父相*/
+    width:16px;
+    height:14px;
+    background-color: #c81623;
+    font-size:12px;
+    line-height: 14px;
+    text-align: center;
+    color: #fff;
+    /*clolor中16进制颜色必须简写*/
+    top:-4px;
+    border-radius: 7px 7px 7px 0;
+    /*border-radius是圆角矩形的意思，跟padding的上右下左的顺时针的顺序是一样的，所以border-radius */
+    /*border-radius它的顺序也是左上角右上角右下角左下角的顺时针顺序，如果想要圆的话直接50%就行了*/
+    /*这是一个新知识点*/
+}
+/*四个盒子中第三个盒子结束*/
+/*四个盒子中第四个盒子开始*/
+.hotwords{
+    width: 600px;
+    padding: 7px 0;
+    float: left;
+}
+.hotwords a{
+    margin-right: 6px;
+    font-size: 12px;
+}
+/*四个盒子中第四个盒子结束*/
+/*上面头部部分结束*/
+/*中间的公共部分jd-nav开始*/
+.jd-nav{
+    width:100%;
+    height: 44px;
+    border-bottom: 2px solid #b1191a;
+}
+.dropdown{
+    width: 210px;
+    height: 44px;
+    float: left;
+    position: relative;
+    z-index: 10;
+    /*给父亲增加等级，儿子级别跟父亲一样，所以增加等级要先考虑父亲*/
+    overflow: visible;
+    /*显示隐藏的盒子，即第二个盒子，因为第二个盒子掉下去了，有时会被隐藏*/
+}
+.dropdown .dt{
+    height: 44px;
+    /*宽度可以继承，高度不能继承，所以要写高度，而不用写宽度*/
+    padding-bottom: 2px;
+}
+.dropdown .dt a{
+    display: block;
+    height: 44px;
+    font: 400 15px/44px "微软雅黑";
+    color: #fff;
+    background-color: #b1191a;
+    padding-left: 10px;
+}
+.dropdown .dd{
+    height: 465px;
+    background-color: #c81623;
+}
+.dropdown .items{
+    height: 31px;
+    line-height: 31px;
+    border-left: 1px solid #B61D1D;
+    padding-left: 10px;
+    color: #fff;
+    font-size: 14px;
+    font-family:"微软雅黑";
+}
+.dropdown .items h3{
+    float: left;
+}
+.dropdown .items span{
+    float: right;
+    margin-right: 15px;
+    font-family: "宋体";
+    font-weight: 600;
+}
+.navitems{
+    width: 680px;
+    height: 44px;
+    float: left;
+}
+.navitems ul{
+    line-height: 44px;
+}
+.navitems li{
+    float: left;
+}
+.navitems li.new{
+    background: url(../images/new.jpg) no-repeat right top;
+}
+.navitems li a{
+    display: block;
+    font: 400 15px/44px "微软雅黑";
+    padding: 0 20px;
+}
+.navitems li a:hover{
+    color: #b1191a;
+}
+.bike{
+    width:140px;
+    height:44px;
+    float: right;
+    background: url(../images/bike.jpg) no-repeat;
+}
+.bike a{
+    display: block;
+    height:44px;
+    /*宽度可以继承，高度不能继承，所以要写高度，而不用写宽度*/
+}
+/*下面底部部分开始*/
+/*下面第一大部分*/
+.slogen{
+    height: 54px;
+    padding: 20px 0;
+    background-color: #f5f5f5;
+    position: relative;
+    margin-bottom: 15px;
+}
+.item{
+    width: 302px;
+    position: absolute;
+    top: 20px;
+    left:50%;
+}
+.slogen1{
+    margin-left: -608px;
+}
+.slogen2{
+    margin-left: -302px;
+}
+.slogen3{
+    margin-left: 2px;
+}
+.slogen4{
+    margin-left: 306px;
+}
+.shopping dl{
+    width:198px;
+    float: left;
+}
+.shopping dt ,
+.coverage .dt
+{
+    font-size:15px;
+    height: 28px;
+    font-family: "微软雅黑";
+    padding-top: 10px;
+}
+.shopping dd{
+    height: 20px;
+}
+.coverage{
+    float: right;
+    width:210px;
+    height: 165px;
+    background: url(../images/china.png) no-repeat left bottom;
+}
+.coverage .dd {
+    margin-top: 10px;
+}
+.coverage p{
+    line-height:18px;
+}
+.coverage .looklook{
+    text-align: right;
+    margin-top: 5px;
+}
+ /*下面第二大部分*/
+ .againw{
+     border-top:1px solid #ccc;
+     padding: 23px 0 30px 0;
+     margin-top: 30px;
+     text-align: center;
+}
+ .link{
+     height: 25px;
+ }
+ .link a{
+     padding: 0 6px;
+ }
+ .copyright{
+     line-height: 18px;
+     margin-bottom: 10px;
+ }
+ .message a{
+     padding: 0 2px;
+ }
+/*主要是注重细节，一步一步来*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

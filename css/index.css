@@ -1,0 +1,180 @@
+@charset "UTF-8";
+.banner604{
+    position: relative;
+}
+.banner604 a{       /*里面是放背景的，如果想让上面的版心压住这个背景，不用比它*/
+    position: absolute;  /*比它的父亲*/
+    height: 604px;
+    width: 100%;
+    background: url(../images/banner.jpg) no-repeat top center;
+}
+.main{
+    position: relative;
+    /*相对定位，banner604和main都是相对定位，等级一样都是0，如果增加权重，用*/
+    /*用z-index，只有定位的盒子才能用z-index，紧记！*/
+    /*都是相对定位，权重一样怎么办，谁在css中写在了下面，谁的权重相对高一点*/
+    /*谁就能压住谁了*/
+}
+.solider{
+    width: 730px;
+    height: 453px;
+    margin: 12px 0 0 220px;
+    background-color: pink;
+    float: left;
+    position: relative;
+}
+.circle{
+    position: absolute;
+    bottom: 8px;
+    left: 50%;
+    margin-left: -66px;
+}
+.circle li{
+    width: 18px;
+    height: 18px;
+    float: left;
+    border-radius: 50%;
+    background-color: #3E3E3E;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    margin: 0 2px;
+    cursor: pointer;
+}
+.circle .current{
+    background-color: #B61B1F;
+}
+.arrow-l,
+.arrow-r
+{
+    position: absolute;
+    width: 28px;
+    height: 62px;
+    top: 50%;
+    margin-top: -31px;
+    color: #fff;
+    font: 500 18px/62px "宋体";
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+    /*background: rgba(0,0,0,0.3);让盒子背景半透明，也可以这样写background: rgba(0,0,0,.3);*/
+    /*又是一个新的知识点，让背景半透明*/
+}
+.arrow-l{
+    left: 0;
+}
+.arrow-r{
+    right: 0;
+}
+.arrow-l:hover,.arrow-r:hover{
+    background: rgba(0,0,0,0.3);
+    color: #fff;
+}
+.news{
+    width: 248px;
+    height: 451px;
+    border: 1px solid #e4e4e4;
+    float: right;
+    margin-top: 12px;
+}
+.jd-news{
+    height: 200px;
+    border-bottom: 1px dashed #E4E4E4;  /*虚线*/
+}
+.jd-news .dt,     /*注意注意，dt是一个类选择器，前面要加点，不是一个标签选择器*/
+.lifeservi .dt{   /*这个dt让我找了半天的错*/
+    height: 43px;
+    border-bottom: 1px dotted #E8E8E7; /*点线*/
+    line-height: 43px;
+}
+.jd-news .dt h3,
+.lifeservi .dt h3{
+    float: left;
+    font: 14px/43px "微软雅黑";
+    padding-left: 15px;
+    color: #666;
+}
+.jd-news .dt a{
+    display: block;
+    float: right;
+    margin-right: 15px;
+    font: 13px/43px "宋体";
+}
+.jd-news .dd ul{
+    padding: 8px 0 0 15px;
+}
+.jd-news .dd li{
+    line-height: 28px;
+}
+.jd-news .dd span{
+    font-weight: 700;
+    margin-right: 5px;
+}
+.lifeservi{
+    height: 251px;
+    width: 248px;
+    overflow: hidden;
+    /*必须给大盒子加宽，lifeservi是大盒子，如果不给加宽，即使给ul加太大的宽，li*/
+    /*会直接掉下去，实践出真知，必须给大盒子加宽，这个和下面的那个一样*/
+}
+.lifeservi  ul{
+    width: 256px;
+    /*给的宽大于lifeservi的宽主要是为了放下li*/
+}
+.lifeservi ul li{
+    width: 62px;
+    height: 70px;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+    float: left;
+    margin-left: -1px;
+    /*margin-left: -1px;是为了让两条边重合，变成一条边*/
+}
+.lifeservi li a{
+    display: block;
+    height: 70px;
+    text-align: center;
+    padding-top: 46px;
+    position: relative;
+}
+.lifeservi li i{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 12px;
+    right: 18px;
+    background: url(../images/spriteicon.png) no-repeat 0 0;
+}
+.lifeservi .song{
+    background: url(../images/song.png) no-repeat right top;
+}
+.lifeservi .mian{
+    background: url(../images/mian.png) no-repeat right top;
+}
+/*双十一活动部分开始*/
+.todays{
+    position: relative;
+    /*两个都是相对定位，谁写在下面听谁的，todays和banner604都是相对定位*/
+    margin-top: 10px;
+}
+.activity{
+    float: left;
+}
+.activity a{
+    display: block;
+}
+.act-good{
+    float: left;
+    width: 1000px;
+    height: 160px;
+    /*必须给大盒子加宽，act-good是大盒子，如果不给加宽，即使给ul加太大的宽，li*/
+    /*会直接掉下去，实践出真知，必须给大盒子加宽，这个和上面的那个一样*/
+}
+.act-good ul{
+    width: 5000px;
+    /*给的宽远大于act-good的宽主要是为了放下li*/
+}
+.act-good li{
+    float: left;
+    margin-right: 1px;
+}
+
